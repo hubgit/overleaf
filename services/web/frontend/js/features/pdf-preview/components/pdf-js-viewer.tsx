@@ -36,6 +36,11 @@ function PdfJsViewer({ url, pdfFile }: PdfJsViewerProps) {
     'page-width'
   )
 
+  const [rotation, setRotation] = usePersistedState(
+    `pdf-viewer-rotation:${projectId}`,
+    0
+  )
+
   // rawScale is different from scale as it is always a number.
   // This is relevant when scale is e.g. 'page-width'.
   const [rawScale, setRawScale] = useState<number | null>(null)
@@ -318,6 +323,13 @@ function PdfJsViewer({ url, pdfFile }: PdfJsViewerProps) {
     }
   }, [scale, pdfJsWrapper])
 
+  // apply rotation when it changes
+  useEffect(() => {
+    if (pdfJsWrapper) {
+      pdfJsWrapper.rotatePages(rotation)
+    }
+  }, [rotation, pdfJsWrapper])
+
   // when highlights are created, build the highlight elements
   useEffect(() => {
     const timers: number[] = []
@@ -527,6 +539,8 @@ function PdfJsViewer({ url, pdfFile }: PdfJsViewerProps) {
           setPage={handlePageChange}
           page={page}
           totalPages={totalPages}
+          rotation={rotation}
+          setRotation={setRotation}
           pdfContainer={pdfJsWrapper?.container}
         />
       )}

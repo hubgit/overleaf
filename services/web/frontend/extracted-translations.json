@@ -1567,6 +1567,8 @@
   "revoke_license": "",
   "right": "",
   "role": "",
+  "rotate_clockwise": "",
+  "rotate_counter_clockwise": "",
   "rolling_texlive_build": "",
   "saml_auth_error": "",
   "saml_email_not_in_account_error_managed_users_2": "",

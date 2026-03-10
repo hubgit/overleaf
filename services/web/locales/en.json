@@ -2023,6 +2023,8 @@
   "right": "Right",
   "ro": "Romanian",
   "role": "Role",
+  "rotate_clockwise": "Rotate clockwise",
+  "rotate_counter_clockwise": "Rotate counter-clockwise",
   "rolling_texlive_build": "Rolling TeX Live releases (advanced)",
   "ru": "Russian",
   "saml": "SAML",

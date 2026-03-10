@@ -204,6 +204,12 @@ export default class PDFJSWrapper {
     })
   }
 
+  rotatePages(rotation: number) {
+    const currentPage = this.viewer.currentPageNumber
+    this.viewer.pagesRotation = rotation
+    this.viewer.currentPageNumber = currentPage
+  }
+
   isVisible() {
     return this.viewer.container.offsetParent !== null
   }
